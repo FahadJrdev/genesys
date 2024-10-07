@@ -22,11 +22,11 @@
         {{ $scripts ?? '' }}
     </head>
     <body class="bg-primaryBg text-white">
-        <div class="w-full flex p-0 md:p-5">
+        <div class="w-full flex">
             @include('layouts.navigation')
             @include('layouts.header')
             <!-- Main Content -->
-            <div class="main-container flex-1 pl-2 md:pl-8 pr-2 pb-8 pt-2 md:ml-[250px] mt-48 sm:mt-24 transition-all">
+            <div class="main-container flex-1 pl-2 md:pl-8 pr-2 pb-8 pt-2 md:ml-[250px] mt-12 md:mt-2 transition-all">
                 {{ $slot }}
             </div>
         </div>

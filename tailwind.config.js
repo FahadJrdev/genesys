@@ -1,11 +1,11 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
+import defaultTheme from "tailwindcss/defaultTheme";
+import forms from "@tailwindcss/forms";
 
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+        "./storage/framework/views/*.php",
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
@@ -14,10 +14,10 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                brand: "#09BE8B",
+                brand: "#D705F2",
                 primaryBg: "#141A26",
                 secondaryBg: "#1E2636",
             },
@@ -33,18 +33,27 @@ export default {
                 drop: "0px 4px 10px #00072D",
             },
             backgroundImage: {
-              'table-header-gradient': 'linear-gradient(180deg, #07533E 0%, #075555 100%)',
-              'pie-gradient': 'linear-gradient(180deg, #2C8337 0%, #055254 100%)',
+                "table-header-gradient":
+                    "linear-gradient(180deg, #07533E 0%, #075555 100%)",
+                "pie-gradient":
+                    "linear-gradient(180deg, #2C8337 0%, #055254 100%)",
             },
             gridTemplateColumns: {
-              'custom-fit': 'repeat(auto-fit, minmax(100px, 1fr))',
-              'responsive-fit': 'repeat(auto-fit, minmax(200px, 1fr))',
-            }
+                "custom-fit": "repeat(auto-fit, minmax(100px, 1fr))",
+                "responsive-fit": "repeat(auto-fit, minmax(200px, 1fr))",
+            },
         },
     },
 
     plugins: [
         forms,
         require("tailwind-scrollbar"),
+        function ({ addBase, theme }) {
+            addBase({
+                ":root": {
+                    "--color-brand": theme("colors.brand"),
+                },
+            });
+        },
     ],
 };
