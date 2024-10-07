@@ -6,22 +6,7 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-document.addEventListener("DOMContentLoaded", () => {
-    // for toggling tabs
-    const tab1 = document.querySelector(".tab-1");
-    const tab2 = document.querySelector(".tab-2");
-
-    tab1?.addEventListener("click", () => {
-        tab1.classList.add("bg-brand", "rounded-tl-lg", "rounded-tr-lg");
-        tab2.classList.remove("bg-brand", "rounded-tl-lg", "rounded-tr-lg");
-    });
-
-    tab2?.addEventListener("click", () => {
-        tab2.classList.add("bg-brand", "rounded-tl-lg", "rounded-tr-lg");
-        tab1.classList.remove("bg-brand", "rounded-tl-lg", "rounded-tr-lg");
-    });
-});
-
+// Navigation js
 document.addEventListener("DOMContentLoaded", function () {
     const openNavbarButton = document.querySelector(".open-navbar");
     const closeNavbarButton = document.querySelector(".close-navbar");
@@ -31,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchBar = document.querySelector(".searchbar");
     const mainContainer = document.querySelector(".main-container");
     const navbarContainer = document.querySelector(".navbar-container");
-    const logo = document.querySelector(".logo");
 
     const navItems = document.querySelectorAll(".nav-items .nav-item");
     const navLinksText = document.querySelectorAll(
@@ -157,5 +141,21 @@ document.addEventListener("DOMContentLoaded", function () {
             watchListsCoins.classList.remove("h-[50vh]");
             watchListsCoins.classList.add("h-[10vh]");
         }
+    });
+});
+
+// home-page js
+document.addEventListener("DOMContentLoaded", function () {
+    const periodTrade = document.querySelectorAll(".period-trade");
+
+    periodTrade.forEach((period) => {
+        period.addEventListener("click", () => {
+            periodTrade.forEach((period) => {
+                period.classList.remove("bg-white");
+                period.classList.remove("text-black");
+            });
+            period.classList.add("bg-white");
+            period.classList.add("text-black");
+        });
     });
 });

@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
@@ -22,11 +22,11 @@
         {{ $scripts ?? '' }}
     </head>
     <body class="bg-primaryBg text-white">
-        <div class="w-full flex">
+        <div class="w-full">
             @include('layouts.navigation')
             @include('layouts.header')
             <!-- Main Content -->
-            <div class="main-container flex-1 pl-2 md:pl-8 pr-2 pb-8 pt-2 md:ml-[250px] mt-12 md:mt-2 transition-all">
+            <div class="main-container pl-2 md:pl-4 pr-2 pb-4 pt-2 md:ml-[250px] mt-10 md:mt-0 transition-all">
                 {{ $slot }}
             </div>
         </div>

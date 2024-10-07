@@ -18,7 +18,8 @@ export default {
             },
             colors: {
                 brand: "#D705F2",
-                primaryBg: "#141A26",
+                primaryFont: "#FFFFFF",
+                primaryBg: "#000000",
                 secondaryBg: "#1E2636",
             },
             width: {
