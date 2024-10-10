@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
         <!-- Additional Conditional Scripts -->
         {{ $scripts ?? '' }}
     </head>
-    <body class="bg-primaryBg text-white">
+    <body class="bg-light-primaryBg dark:bg-primaryBg text-light-primaryFont dark:text-primaryFont">
         <div class="w-full">
             @include('layouts.navigation')
             @include('layouts.header')

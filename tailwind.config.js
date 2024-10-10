@@ -3,6 +3,7 @@ import forms from "@tailwindcss/forms";
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: "selector",
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
@@ -18,9 +19,21 @@ export default {
             },
             colors: {
                 brand: "#D705F2",
-                primaryFont: "#FFFFFF",
-                primaryBg: "#000000",
-                secondaryBg: "#1E2636",
+                inverterBrand: "28FA0D",
+                primaryFont: "#F0FAE2",
+                oppositeContrastFont: "#000000",
+                primaryBg: "#0F051D",
+                oppositeContrastBg: "#FFFFFF",
+                secondaryBg: "#39393E",
+                tertiaryBg: "#1D1D22",
+                light: {
+                    primaryFont: "#0F051D",
+                    oppositeContrastFont: "#FFFFFF",
+                    primaryBg: "#F0FAE2",
+                    oppositeContrastBg: "#000000",
+                    secondaryBg: "#C6C6C1",
+                    tertiaryBg: "#E2E2DD",
+                },
             },
             width: {
                 "custom-header": "calc(100vw - 295px)",
@@ -53,6 +66,16 @@ export default {
             addBase({
                 ":root": {
                     "--color-brand": theme("colors.brand"),
+                    "--color-primary-font": theme("colors.primaryFont"),
+                    "--color-primary-bg": theme("colors.primaryBg"),
+                    "--color-secondary-bg": theme("colors.secondaryBg"),
+                    "--color-tertiary-bg": theme("colors.tertiaryBg"),
+                },
+                ".light": {
+                    "--color-primary-font": theme("colors.light.primaryFont"),
+                    "--color-primary-bg": theme("colors.light.primaryBg"),
+                    "--color-secondary-bg": theme("colors.light.secondaryBg"),
+                    "--color-tertiary-bg": theme("colors.light.tertiaryBg"),
                 },
             });
         },

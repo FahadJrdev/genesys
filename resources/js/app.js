@@ -151,11 +151,37 @@ document.addEventListener("DOMContentLoaded", function () {
     periodTrade.forEach((period) => {
         period.addEventListener("click", () => {
             periodTrade.forEach((period) => {
-                period.classList.remove("bg-white");
-                period.classList.remove("text-black");
+                period.classList.remove("bg-light-oppositeContrastBg");
+                period.classList.remove("dark:bg-oppositeContrastBg");
+                period.classList.remove("text-light-oppositeContrastFont");
+                period.classList.remove("dark:text-oppositeContrastFont");
             });
-            period.classList.add("bg-white");
-            period.classList.add("text-black");
+            period.classList.add("bg-light-oppositeContrastBg");
+            period.classList.add("dark:bg-oppositeContrastBg");
+            period.classList.add("text-light-oppositeContrastFont");
+            period.classList.add("dark:text-oppositeContrastFont");
         });
+    });
+});
+
+// theme-js
+document.addEventListener("DOMContentLoaded", function () {
+    const themeToggler = document.getElementById("theme-toggler");
+    const html = document.documentElement;
+
+    themeToggler.addEventListener("click", () => {
+        if (html.classList.contains("dark")) {
+            html.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        } else {
+            html.classList.add("dark");
+            localStorage.removeItem("theme");
+        }
+    });
+
+    window.addEventListener("load", () => {
+        if (localStorage.getItem("theme") === "light") {
+            html.classList.remove("dark");
+        }
     });
 });
