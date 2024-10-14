@@ -1,20 +1,22 @@
-@props(['visibilityClass' => 'hidden', 'closeButton' => true])
+@props(['visibilityClass' => 'hidden', 'title' => null, 'closeButton' => true])
 
 <div class="fixed inset-0 bg-light-primaryBg/70 dark:bg-primaryBg/70 items-center justify-center z-50 {{ $visibilityClass }} transition-all" id="overlay-popup">
     <div class="bg-light-tertiaryBg dark:bg-tertiaryBg rounded-lg shadow-lg p-6 w-full max-w-md relative">
         <!-- Title (Optional) -->
-        @isset($title)
-        <h2 class="text-xl font-semibold mb-4">{{ $title }}</h2>
-        @endisset
+        @if($title)
+        <div class="bg-primaryBg p-2 w-full max-w-md rounded absolute top-[-5px] left-0 shadow">
+            <h2 class="text-xl font-semibold">{{ $title }}</h2>
+        </div>
+        @endif
 
         <!-- Dynamic content -->
-        <div class="popup-body">
+        <div class="popup-body mt-6">
             {{ $slot }}
         </div>
 
         <!-- Close Button -->
         @if($closeButton)
-        <button id="close-popup" class="absolute top-2 right-2 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
+        <button id="close-popup" class="absolute top-0 right-2 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
         @endif
     </div>
 </div>

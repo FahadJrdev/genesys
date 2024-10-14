@@ -13,4 +13,9 @@ class WatchListController extends Controller
     {
         return view('watchlist.index');
     }
+
+    public function add(): View
+    {
+        return view('watchlist.add');
+    }
 }

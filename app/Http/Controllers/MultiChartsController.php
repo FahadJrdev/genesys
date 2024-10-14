@@ -13,4 +13,8 @@ class MultiChartsController extends Controller
     {
         return view('multi_charts.index');
     }
+    public function add(): View
+    {
+        return view('multi_charts.add');
+    }
 }

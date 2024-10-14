@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-gradient {
-    @apply bg-gradient-to-r;
-    background: linear-gradient(92.58deg, #2F8532 0.42%, #1D7550 15.32%, #248971 68.61%, #004A4F 98.76%);
+.search-gradient {
+    background: linear-gradient(90deg, #3c2148 0%, #914fae 100%);
 }
 
-.pie-gradient {
-    background: linear-gradient(180deg, #2C8337 0%, #055254 100%);
+.card-gradient-bg {
+    background: linear-gradient(180deg, #3C2148 0%, #310370 100%);
 }

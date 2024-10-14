@@ -19,6 +19,7 @@ export default {
             },
             colors: {
                 brand: "#D705F2",
+                hoverBrand: "#d605f2aa",
                 inverterBrand: "28FA0D",
                 primaryFont: "#F0FAE2",
                 oppositeContrastFont: "#000000",
@@ -47,10 +48,8 @@ export default {
                 drop: "0px 4px 10px #00072D",
             },
             backgroundImage: {
-                "table-header-gradient":
-                    "linear-gradient(180deg, #07533E 0%, #075555 100%)",
-                "pie-gradient":
-                    "linear-gradient(180deg, #2C8337 0%, #055254 100%)",
+                "search-back-gradient": "linear-gradient(90deg, #3C2148 0%, #914FAE 100%);",
+                "card-gradient-bg" : "linear-gradient(180deg, #3C2148 0%, #310370 100%);",
             },
             gridTemplateColumns: {
                 "custom-fit": "repeat(auto-fit, minmax(100px, 1fr))",

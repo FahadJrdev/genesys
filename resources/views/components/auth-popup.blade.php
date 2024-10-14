@@ -1,6 +1,6 @@
-@props(['visibilityClass' => 'hidden']) <!-- You can control the visibility class here -->
+@props(['visibilityClass' => 'hidden', 'title' => null]) <!-- You can control the visibility class here -->
 
-<x-overlay-popup visibilityClass="{{ $visibilityClass }}">
+<x-overlay-popup visibilityClass="{{ $visibilityClass }}" title="{{ $title }}">
     <div class="text-center">
         <h2 class="text-2xl font-semibold text-white mb-2">Sign-in</h2>
         <p class="text-gray-400 mb-6">Sign-in to Genesys View App to sync your settings, list, and alerts across unlimited devices.</p>

@@ -1,4 +1,4 @@
-@props(['visibilityClass' => 'hidden', 'closeButton' => true])
+@props(['visibilityClass' => 'hidden', 'closeButton' => false])
 
 <div class="fixed inset-0 bg-light-primaryBg/70 dark:bg-primaryBg/70 items-center justify-center z-50 {{ $visibilityClass }} transition-all" id="overlay-loading">
     <div class="bg-light-tertiaryBg dark:bg-tertiaryBg rounded-lg shadow-lg p-6 w-full max-w-md relative">
