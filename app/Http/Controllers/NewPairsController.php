@@ -7,10 +7,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class PaymentController extends Controller
+class NewPairsController extends Controller
 {
     public function index(): View
     {
-        return view('payment.index');
+        return view('new_pairs.index');
     }
 }

@@ -7,10 +7,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class OkexController extends Controller
+class AdvertiseController extends Controller
 {
     public function index(): View
     {
-        return view('okex.index');
+        return view('advertise.index');
     }
 }

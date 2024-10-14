@@ -7,10 +7,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class KucoinController extends Controller
+class MultiChartsController extends Controller
 {
     public function index(): View
     {
-        return view('kucoin.index');
+        return view('multi_charts.index');
     }
 }

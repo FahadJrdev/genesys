@@ -7,10 +7,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class ExchangeController extends Controller
+class GainersLosersController extends Controller
 {
     public function index(): View
     {
-        return view('exchange.index');
+        return view('gainers_losers.index');
     }
 }

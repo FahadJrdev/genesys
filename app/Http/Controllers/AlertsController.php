@@ -7,10 +7,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class PriceController extends Controller
+class AlertsController extends Controller
 {
     public function index(): View
     {
-        return view('price.index');
+        return view('alerts.index');
     }
 }

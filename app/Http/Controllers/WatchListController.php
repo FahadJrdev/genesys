@@ -7,10 +7,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class CryptoController extends Controller
+class WatchListController extends Controller
 {
     public function index(): View
     {
-        return view('crypto.index');
+        return view('watchlist.index');
     }
 }
