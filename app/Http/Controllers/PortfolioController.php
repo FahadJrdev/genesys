@@ -13,4 +13,8 @@ class PortfolioController extends Controller
     {
         return view('portfolio.index');
     }
+    public function wallet(): View
+    {
+        return view('portfolio.wallet');
+    }
 }

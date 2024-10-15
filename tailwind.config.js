@@ -19,6 +19,7 @@ export default {
             },
             colors: {
                 brand: "#D705F2",
+                brandSecondary: "#7D4695",
                 hoverBrand: "#d605f2aa",
                 inverterBrand: "28FA0D",
                 primaryFont: "#F0FAE2",

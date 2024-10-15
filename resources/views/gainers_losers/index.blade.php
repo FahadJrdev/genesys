@@ -86,11 +86,11 @@
 
         <!-- Filters and Sorting Options -->
         <div class="relative">
-            <ul id="dropdownList" class="hidden absolute top-12 w-48 py-1 mt-2 origin-top-right bg-gray-800 border border-gray-700 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <li class="px-4 py-2 text-sm text-white hover:bg-gray-600 cursor-pointer" data-value="5">Last 5 minutes</li>
-                <li class="px-4 py-2 text-sm text-white hover:bg-gray-600 cursor-pointer" data-value="60">Last hour</li>
-                <li class="px-4 py-2 text-sm text-white hover:bg-gray-600 cursor-pointer" data-value="360">Last 6 hours</li>
-                <li class="px-4 py-2 text-sm text-white hover:bg-gray-600 cursor-pointer selected" data-value="1440">Last 24 hours</li>
+            <ul id="dropdownList" class="hidden absolute top-12 w-48 py-1 mt-2 origin-top-right bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-lg ring-1 ring-white dark:ring-black ring-opacity-5 focus:outline-none">
+                <li class="px-4 py-2 text-sm hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer" data-value="5">Last 5 minutes</li>
+                <li class="px-4 py-2 text-sm hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer" data-value="60">Last hour</li>
+                <li class="px-4 py-2 text-sm hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer" data-value="360">Last 6 hours</li>
+                <li class="px-4 py-2 text-sm hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer selected" data-value="1440">Last 24 hours</li>
             </ul>
             <div class="min-w-full flex justify-between items-center space-x-2 py-2 overflow-y-hidden">
                 <div class="flex items-center space-x-2">
@@ -101,55 +101,72 @@
                                 <path d="M12 2.375C9.99747 2.375 8.0399 2.96882 6.37486 4.08137C4.70981 5.19392 3.41206 6.77523 2.64572 8.62533C1.87939 10.4754 1.67888 12.5112 2.06955 14.4753C2.46023 16.4393 3.42454 18.2435 4.84055 19.6595C6.25656 21.0755 8.06066 22.0398 10.0247 22.4305C11.9888 22.8211 14.0246 22.6206 15.8747 21.8543C17.7248 21.0879 19.3061 19.7902 20.4186 18.1251C21.5312 16.4601 22.125 14.5025 22.125 12.5C22.122 9.8156 21.0543 7.24199 19.1562 5.34383C17.258 3.44567 14.6844 2.37798 12 2.375ZM12 20.375C10.4425 20.375 8.91993 19.9131 7.62489 19.0478C6.32985 18.1825 5.32049 16.9526 4.72445 15.5136C4.12841 14.0747 3.97246 12.4913 4.27632 10.9637C4.58018 9.43606 5.3302 8.03287 6.43154 6.93153C7.53288 5.8302 8.93607 5.08017 10.4637 4.77632C11.9913 4.47246 13.5747 4.62841 15.0136 5.22445C16.4526 5.82049 17.6825 6.82985 18.5478 8.12488C19.4131 9.41992 19.875 10.9425 19.875 12.5C19.8728 14.5879 19.0424 16.5896 17.566 18.066C16.0896 19.5424 14.0879 20.3728 12 20.375ZM18.375 12.5C18.375 12.7984 18.2565 13.0845 18.0455 13.2955C17.8345 13.5065 17.5484 13.625 17.25 13.625H12C11.7016 13.625 11.4155 13.5065 11.2045 13.2955C10.9935 13.0845 10.875 12.7984 10.875 12.5V7.25C10.875 6.95163 10.9935 6.66548 11.2045 6.4545C11.4155 6.24353 11.7016 6.125 12 6.125C12.2984 6.125 12.5845 6.24353 12.7955 6.4545C13.0065 6.66548 13.125 6.95163 13.125 7.25V11.375H17.25C17.5484 11.375 17.8345 11.4935 18.0455 11.7045C18.2565 11.9155 18.375 12.2016 18.375 12.5Z"/>
                             </svg>
                             <span id="selectedOption">Last 24 hours</span>
-                            <svg width="24" height="25" viewBox="0 0 24 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 10.5L12 15.5L17 10.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg class="stroke-light-primaryFont dark:stroke-primaryFont" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10.5L12 15.5L17 10.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
                     </div>
-                    <!-- Trending -->
-                    <div class="flex items-center space-x-1 px-3 py-1 rounded bg-brand">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.17833 13.6933L0 12.5149L5.8925 6.62243L11.1958 11.9258L14.7317 8.38993L13.2792 6.93826L18.8558 5.44409L17.3617 11.0208L15.91 9.56909L11.1958 14.2824L5.8925 8.97909L1.17833 13.6933Z"/>
-                        </svg>
-                        <span>Trending</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.16663 14.1667H10.8333V9.16675H9.16663V14.1667ZM9.99996 7.50008C10.2361 7.50008 10.4341 7.42008 10.5941 7.26008C10.7541 7.10008 10.8338 6.9023 10.8333 6.66675C10.8327 6.43119 10.7527 6.23342 10.5933 6.07341C10.4338 5.91341 10.2361 5.83342 9.99996 5.83342C9.76385 5.83342 9.56607 5.91341 9.40663 6.07341C9.24718 6.23342 9.16718 6.43119 9.16663 6.66675C9.16607 6.9023 9.24607 7.10036 9.40663 7.26092C9.56718 7.42147 9.76496 7.50119 9.99996 7.50008ZM9.99996 18.3334C8.84718 18.3334 7.76385 18.1145 6.74996 17.6767C5.73607 17.239 4.85413 16.6454 4.10413 15.8959C3.35413 15.1465 2.76052 14.2645 2.32329 13.2501C1.88607 12.2356 1.66718 11.1523 1.66663 10.0001C1.66607 8.84786 1.88496 7.76453 2.32329 6.75008C2.76163 5.73564 3.35524 4.85369 4.10413 4.10425C4.85302 3.3548 5.73496 2.76119 6.74996 2.32341C7.76496 1.88564 8.84829 1.66675 9.99996 1.66675C11.1516 1.66675 12.235 1.88564 13.25 2.32341C14.265 2.76119 15.1469 3.3548 15.8958 4.10425C16.6447 4.85369 17.2386 5.73564 17.6775 6.75008C18.1163 7.76453 18.335 8.84786 18.3333 10.0001C18.3316 11.1523 18.1127 12.2356 17.6766 13.2501C17.2405 14.2645 16.6469 15.1465 15.8958 15.8959C15.1447 16.6454 14.2627 17.2392 13.25 17.6776C12.2372 18.1159 11.1538 18.3345 9.99996 18.3334ZM9.99996 16.6667C11.8611 16.6667 13.4375 16.0209 14.7291 14.7292C16.0208 13.4376 16.6666 11.8612 16.6666 10.0001C16.6666 8.13897 16.0208 6.56258 14.7291 5.27091C13.4375 3.97925 11.8611 3.33341 9.99996 3.33341C8.13885 3.33341 6.56246 3.97925 5.27079 5.27091C3.97913 6.56258 3.33329 8.13897 3.33329 10.0001C3.33329 11.8612 3.97913 13.4376 5.27079 14.7292C6.56246 16.0209 8.13885 16.6667 9.99996 16.6667Z"/>
-                        </svg>
-                        <div class="flex items-center">
-                            <button class="period-trade px-2 py-1 rounded bg-transparent hover:bg-light-oppositeContrastBg hover:dark:bg-oppositeContrastBg hover:text-light-oppositeContrastFont hover:dark:text-oppositeContrastFont">1h</button>
-                            <button class="period-trade px-2 py-1 rounded bg-transparent hover:bg-light-oppositeContrastBg hover:dark:bg-oppositeContrastBg hover:text-light-oppositeContrastFont hover:dark:text-oppositeContrastFont">6h</button>
-                            <button class="period-trade px-2 py-1 rounded bg-light-oppositeContrastBg dark:bg-oppositeContrastBg text-light-oppositeContrastFont dark:text-oppositeContrastFont hover:bg-light-oppositeContrastBg hover:dark:bg-oppositeContrastBg hover:text-light-oppositeContrastFont hover:dark:text-oppositeContrastFont">24h</button>
-                            <button class="period-trade px-2 py-1 rounded bg-transparent hover:bg-light-oppositeContrastBg hover:dark:bg-oppositeContrastBg hover:text-light-oppositeContrastFont hover:dark:text-oppositeContrastFont">7d</button>
-                        </div>
-                    </div>
-    
-                    <!-- Top -->
-                    <button class="w-20 flex items-center space-x-1 px-3 py-2 rounded bg-transparent border border-brand hover:bg-brand transition-all">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 20.5V12.5V20.5ZM16 12.5L19 15.5L16 12.5ZM16 12.5L13 15.5L16 12.5ZM4 14.5L12 6.5L15 9.5L20 4.5"/>
-                            <path d="M16 20.5V12.5M16 12.5L19 15.5M16 12.5L13 15.5M4 14.5L12 6.5L15 9.5L20 4.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Top
-                    </button>
     
                     <!-- Gainers -->
-                    <button class="w-24 flex items-center space-x-1 px-3 py-2 rounded bg-transparent border border-brand hover:bg-brand transition-all">
+                    <button class="w-28 flex items-center space-x-1 px-3 py-2 rounded bg-transparent border border-brand hover:bg-brand transition-all">
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.5 3.875C4.5 3.57663 4.61853 3.29048 4.8295 3.0795C5.04048 2.86853 5.32663 2.75 5.625 2.75H18.375C18.6734 2.75 18.9595 2.86853 19.1705 3.0795C19.3815 3.29048 19.5 3.57663 19.5 3.875C19.5 4.17337 19.3815 4.45952 19.1705 4.6705C18.9595 4.88147 18.6734 5 18.375 5H5.625C5.32663 5 5.04048 4.88147 4.8295 4.6705C4.61853 4.45952 4.5 4.17337 4.5 3.875ZM12.795 8.33L18.42 13.955C18.5244 14.0594 18.6072 14.1833 18.6637 14.3197C18.7202 14.4562 18.7493 14.6024 18.7493 14.75C18.7493 14.8976 18.7202 15.0438 18.6637 15.1803C18.6072 15.3167 18.5244 15.4406 18.42 15.545C18.3156 15.6494 18.1917 15.7322 18.0553 15.7887C17.9188 15.8452 17.7726 15.8743 17.625 15.8743C17.4774 15.8743 17.3312 15.8452 17.1947 15.7887C17.0583 15.7322 16.9344 15.6494 16.83 15.545L13.125 11.8415V21.875C13.125 22.1734 13.0065 22.4595 12.7955 22.6705C12.5845 22.8815 12.2984 23 12 23C11.7016 23 11.4155 22.8815 11.2045 22.6705C10.9935 22.4595 10.875 22.1734 10.875 21.875V11.8415L7.17 15.545C6.95915 15.7558 6.67318 15.8743 6.375 15.8743C6.07682 15.8743 5.79085 15.7558 5.58 15.545C5.36915 15.3342 5.2507 15.0482 5.2507 14.75C5.2507 14.6024 5.27978 14.4562 5.33628 14.3197C5.39278 14.1833 5.4756 14.0594 5.58 13.955L11.205 8.33C11.4159 8.11932 11.7019 8.00099 12 8.00099C12.2981 8.00099 12.5841 8.11932 12.795 8.33Z"/>
                         </svg>
                         Gainers
                     </button>
-    
-                    <!-- New Pairs -->
-                    <button class="w-32 flex items-center space-x-1 px-3 py-2 rounded bg-transparent border border-brand hover:bg-brand transition-all">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.5 15.0001C10.5 15.0001 12.5 13.9671 14 12.2036C18 7.5001 20.712 8.9086 22 9.5001C19.25 11.0001 20.25 15.3116 16.5 18.5001C14.191 20.4631 11.747 21.0071 9.5 21.0001C6.2615 20.9901 3.431 19.3821 2 18.2031V9.0001" fill="white"/>
-                            <path d="M8.5 15.0001C10.5 15.0001 12.5 13.9671 14 12.2036C18 7.5001 20.712 8.9086 22 9.5001C19.25 11.0001 20.25 15.3116 16.5 18.5001C14.191 20.4631 11.747 21.0071 9.5 21.0001C6.2615 20.9901 3.431 19.3821 2 18.2031V9.0001" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2.82398 8.43351C2.7502 8.32385 2.65542 8.2299 2.54511 8.15709C2.4348 8.08429 2.31115 8.03407 2.18131 8.00935C2.05147 7.98463 1.91802 7.98589 1.78867 8.01306C1.65933 8.04023 1.53665 8.09278 1.42773 8.16766C1.31882 8.24254 1.22583 8.33826 1.15414 8.4493C1.08245 8.56034 1.03349 8.68449 1.01007 8.81457C0.986664 8.94465 0.989272 9.07808 1.01775 9.20715C1.04622 9.33622 1.1 9.45836 1.17598 9.56651L2.82398 8.43351ZM18.001 18.365C18.2305 18.2321 18.3979 18.0135 18.4662 17.7573C18.5346 17.501 18.4984 17.2281 18.3655 16.9985C18.2326 16.769 18.014 16.6016 17.7577 16.5333C17.5014 16.4649 17.2285 16.5011 16.999 16.634L18.001 18.365ZM1.17598 9.56651C2.62198 11.6695 5.39948 14.572 8.44348 16.6115C9.96698 17.6335 11.6085 18.473 13.2245 18.8665C14.8475 19.261 16.5225 19.221 18.001 18.365L16.999 16.634C16.1025 17.153 14.9965 17.239 13.6975 16.923C12.3915 16.605 10.9705 15.898 9.55648 14.9505C6.72548 13.053 4.12848 10.3305 2.82398 8.43351L1.17598 9.56651Z" fill="white"/>
-                            <path d="M16.7975 9C16.42 7.8515 15.4275 5.47 13.7975 4H5.79749C7.60849 5.838 11.5 8.5 13.5 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <!-- Losers -->
+                    <button class="w-24 flex items-center space-x-1 px-3 py-2 rounded bg-transparent border border-brand hover:bg-brand transition-all">
+                        <svg class="fill-light-primaryFont dark:fill-primaryFont stroke-light-primaryFont dark:stroke-primaryFont" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 17.5V3.5V17.5ZM6 11.5L12 17.5L18 11.5M19 21.5H5H19Z" fill-opacity="0.1"/>
+                            <path d="M12 17.5V3.5M12 17.5L6 11.5M12 17.5L18 11.5M19 21.5H5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        New Pairs
+                        Losers
                     </button>
+    
+                    <!-- Volume -->
+                     <div class="w-56 flex">
+                         <button id="volume-token" class="flex items-center space-x-1 px-3 py-2 rounded-tl rounded-bl bg-transparent border border-brand hover:bg-brand transition-all">
+                             <svg class="fill-light-primaryFont dark:fill-primaryFont stroke-light-primaryFont dark:stroke-primaryFont" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M18.3337 3H1.66699L8.33366 10.8833V16.3333L11.667 18V10.8833L18.3337 3Z"/>
+                             </svg>
+                             <span>Volume</span>
+                             <div class="selected flex items-center space-x-1">
+                                 <span>:</span>
+                                 <svg class="stroke-light-primaryFont dark:stroke-primaryFont" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M10 17.5L15 12.5L10 7.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                 </svg>
+                                 <span class="amount">$100k</span>
+                             </div>
+                        </button>
+                        <button id="close-volume" class="px-1 border border-brand hover:bg-brand rounded-tr rounded-br flex items-center justify-center">
+                            <svg class="stroke-light-primaryFont dark:stroke-primaryFont"  width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 7.5L7 17.5M7 7.5L17 17.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                     </div>
+
+                    <!-- Liquidity -->
+                     <div class="w-64 flex">
+                         <button id="liquidity-token" class="flex items-center space-x-1 px-3 py-2 rounded-tl rounded-bl bg-transparent border border-brand hover:bg-brand transition-all">
+                             <svg class="fill-light-primaryFont dark:fill-primaryFont stroke-light-primaryFont dark:stroke-primaryFont" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M18.3337 3H1.66699L8.33366 10.8833V16.3333L11.667 18V10.8833L18.3337 3Z"/>
+                             </svg>
+                             <span>Liquidity</span>
+                             <div class="selected flex items-center space-x-1">
+                                 <span>:</span>
+                                 <svg class="stroke-light-primaryFont dark:stroke-primaryFont" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M10 17.5L15 12.5L10 7.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                 </svg>
+                                 <span class="amount">$250k</span>
+                             </div>
+                        </button>
+                        <button id="close-liquidity" class="px-1 border border-brand hover:bg-brand rounded-tr rounded-br flex items-center justify-center">
+                            <svg class="stroke-light-primaryFont dark:stroke-primaryFont"  width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 7.5L7 17.5M7 7.5L17 17.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                     </div>
                 </div>
     
                 <!-- Move buttons to the right -->

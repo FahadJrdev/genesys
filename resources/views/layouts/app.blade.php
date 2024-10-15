@@ -26,12 +26,12 @@
         <script>
             // show pop up
             const showOverlayPopup = () => {
-                document.getElementById("overlay-popup").classList.remove("hidden");
-                document.getElementById("overlay-popup").classList.add("flex");
+                document.querySelector(".auth-popup").classList.remove("hidden");
+                document.querySelector(".auth-popup").classList.add("flex");
             };
             const hideOverlayPopup = () => {
-                document.getElementById("overlay-popup").classList.remove("flex");
-                document.getElementById("overlay-popup").classList.add("hidden");
+                document.querySelector(".auth-popup").classList.remove("flex");
+                document.querySelector(".auth-popup").classList.add("hidden");
             };
             const showOverlayLoading = () => {
                 document.getElementById("overlay-loading").classList.remove("hidden");
@@ -51,7 +51,7 @@
             <div class="main-container pl-2 md:pl-4 pr-2 pb-4 pt-2 md:ml-[250px] mt-16 md:mt-0 transition-all">
                 {{ $slot }}
             </div>
-            <x-auth-popup />
+            <x-auth-popup visibilityClass="auth-popup hidden" />
             <x-loading-overlay />
         </div>
     </body>

@@ -28,6 +28,7 @@ Route::get('/multi-charts/add', [MultiChartsController::class, 'add'])->name('mu
 Route::get('/new-pairs', [NewPairsController::class, 'index'])->name('new-pairs');
 Route::get('/gainers-losers', [GainersLosersController::class, 'index'])->name('gainers-losers');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+Route::get('/portfolio/wallet', [PortfolioController::class, 'wallet'])->name('portfolio-wallet');
 Route::get('/advertise', [AdvertiseController::class, 'index'])->name('advertise');
 
 Route::middleware('auth')->group(function () {
