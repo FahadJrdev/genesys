@@ -44,13 +44,16 @@ export default {
             },
             height: {
                 "custom-nav": "calc(100vh - 2rem)",
+                "custom-height": "calc(100vh - 12rem)",
             },
             boxShadow: {
                 drop: "0px 4px 10px #00072D",
             },
             backgroundImage: {
-                "search-back-gradient": "linear-gradient(90deg, #3C2148 0%, #914FAE 100%);",
-                "card-gradient-bg" : "linear-gradient(180deg, #3C2148 0%, #310370 100%);",
+                "search-back-gradient":
+                    "linear-gradient(90deg, #3C2148 0%, #914FAE 100%);",
+                "card-gradient-bg":
+                    "linear-gradient(180deg, #3C2148 0%, #310370 100%);",
             },
             gridTemplateColumns: {
                 "custom-fit": "repeat(auto-fit, minmax(100px, 1fr))",

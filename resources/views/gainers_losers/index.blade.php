@@ -1,4 +1,14 @@
 <x-app-layout>
+    <script>
+        const showFilterCustomizePopup = () => {
+            document.querySelector(".filter-customize-popup").classList.remove("hidden");
+            document.querySelector(".filter-customize-popup").classList.add("flex");
+        };
+        const hideFilterCustomizePopup = () => {
+            document.querySelector(".filter-customize-popup").classList.remove("flex");
+            document.querySelector(".filter-customize-popup").classList.add("hidden");
+        };
+    </script>
     <div>
         <div class="min-w-full overflow-y-hidden">
             <div class="min-w-full flex justify-between items-center p-1">
@@ -172,11 +182,11 @@
                 <!-- Move buttons to the right -->
                 <div class="ml-auto flex items-center space-x-2">
                     <!-- Filters -->
-                    <button class="w-24 flex items-center space-x-1 px-3 py-2 rounded bg-transparent border border-brand hover:bg-brand transition-all">
-                    <svg width="24" height="25" viewBox="0 0 24 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22 3.5H2L10 12.96V19.5L14 21.5V12.96L22 3.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Filters</span>
+                    <button onclick="showFilterCustomizePopup()" class="w-24 flex items-center space-x-1 px-3 py-2 rounded bg-transparent border border-brand hover:bg-brand transition-all">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 3.5H2L10 12.96V19.5L14 21.5V12.96L22 3.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Filters</span>
                     </button>
                 </div>
             </div>
@@ -860,6 +870,40 @@
             </div>
         </div>
     </div>
+
+    <x-overlay-popup title="Customize filters" visibilityClass="hidden filter-customize-popup">
+        <form id="filter-customize-form" class="p-2 h-custom-height overflow-x-hidden">
+            <div class="form-inputs py-4">
+                <div class="flex items-center space-x-2">
+                    <button type="button" class="w-full first-line:flex items-center justify-center space-x-3 border border-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-4 rounded">
+                        <span>All Platforms</span>
+                    </button>
+                    <button type="button" class="w-full flex items-center justify-center space-x-3 border text-brandSecondary hover:text-primaryFont border-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-4 rounded">
+                        <span>All DEXes</span>
+                    </button>
+                </div>
+            </div>
+            <div class="styled-title py-4 relative">
+                <hr class="h-[1px] w-full bg-brandSecondary border-brandSecondary" />
+                <div class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-semmibold bg-tertiaryBg py-2 px-4">FILTERS (OPTIONAL)</div>
+            </div>
+            <div class="bg-light-primaryBg dark:bg-primaryBg p-2 w-full max-w-2xl flex items-center justify-around rounded absolute bottom-[-40px] left-0 shadow">
+                <button type="submit" class="flex items-center justify-center space-x-3 bg-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-4 rounded">
+                    <svg width="25" height="25" viewBox="0 0 25 25" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.58964 17.2635L9.94319 17.6171L10.2967 17.2635L20.3765 7.18376C20.3766 7.18372 20.3766 7.18368 20.3766 7.18364C20.4938 7.06667 20.6526 7.00098 20.8182 7.00098C20.9838 7.00098 21.1425 7.06666 21.2597 7.18362C21.3766 7.30078 21.4422 7.4595 21.4422 7.62499C21.4422 7.79051 21.3765 7.94927 21.2596 8.06643C21.2596 8.06651 21.2595 8.06658 21.2594 8.06665L10.3849 18.9412C10.2677 19.0583 10.1088 19.124 9.94319 19.124C9.77756 19.124 9.61871 19.0583 9.50152 18.9412L4.63375 14.0734C4.5264 13.9556 4.46804 13.8012 4.4708 13.6417C4.47359 13.4797 4.53918 13.3251 4.65373 13.2105C4.7683 13.096 4.92287 13.0304 5.08487 13.0276C5.2444 13.0248 5.39885 13.0832 5.51664 13.1905L9.58964 17.2635Z"/>
+                    </svg>
+                    <span>Apply</span>
+                </button>
+                <button type="button" onclick="hideFilterCustomizePopup()" class="flex items-center justify-center space-x-3 border border-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-4 rounded">
+                    <svg width="25" height="25" viewBox="0 0 25 25" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.14258 7.5L17.1426 17.5M7.14258 17.5L17.1426 7.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Restore defaults</span>
+                </button>
+            </div>
+        </form>
+    </x-overlay-popup>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         showOverlayLoading();
@@ -889,6 +933,23 @@
                 // Close the dropdown
                 document.getElementById("dropdownList").classList.add("hidden");
             });
+        });
+
+        document.addEventListener("click", function(event) {
+            const dropdownList = document.getElementById("dropdownList");
+            const dropdownButton = document.getElementById("dropdownButton");
+
+            // If the click is outside the dropdown or the button, close the dropdown
+            if (!dropdownList.contains(event.target) && !dropdownButton.contains(event.target)) {
+                dropdownList.classList.add("hidden");
+            }
+        });
+
+        
+        document.getElementById("filter-customize-form").addEventListener("submit", function(event) {
+            event.preventDefault();  
+            
+            window.location.href = "/gainers-losers";
         });
     </script>
 </x-app-layout>

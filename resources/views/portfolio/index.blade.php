@@ -32,7 +32,7 @@
     <x-overlay-popup title="Add Wallet" visibilityClass="hidden wallet-popup">
         <form id="wallet-form" class="p-3 text-sm">
             <!-- Wallet Name Input -->
-            <div class="flex items-center mb-3">
+            <div class="flex items-center mt-6 mb-3">
                 <div class="w-10 h-10 rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="path-1-inside-1_286_15421" fill="white">

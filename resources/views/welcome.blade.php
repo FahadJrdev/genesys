@@ -835,5 +835,15 @@
                 document.getElementById("dropdownList").classList.add("hidden");
             });
         });
+
+        document.addEventListener("click", function(event) {
+            const dropdownList = document.getElementById("dropdownList");
+            const dropdownButton = document.getElementById("dropdownButton");
+
+            // If the click is outside the dropdown or the button, close the dropdown
+            if (!dropdownList.contains(event.target) && !dropdownButton.contains(event.target)) {
+                dropdownList.classList.add("hidden");
+            }
+        });
     </script>
 </x-app-layout>
