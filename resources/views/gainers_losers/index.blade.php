@@ -885,7 +885,7 @@
             </div>
             <div class="styled-title py-4 relative">
                 <hr class="h-[1px] w-full bg-brandSecondary border-brandSecondary" />
-                <div class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-semibold bg-tertiaryBg w-48 text-center">FILTERS (OPTIONAL)</div>
+                <div class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-semibold bg-light-tertiaryBg dark:bg-tertiaryBg w-48 text-center">FILTERS (OPTIONAL)</div>
             </div>
             <form id="filter-cutomize-form" class="py-4 text-sm">
                 <!-- general -->
