@@ -871,10 +871,10 @@
         </div>
     </div>
 
-    <x-overlay-popup title="Customize filters" visibilityClass="hidden filter-customize-popup">
+    <x-large-popup title="Customize filters" visibilityClass="hidden filter-customize-popup">
         <form id="filter-customize-form" class="p-2 h-custom-height overflow-x-hidden">
             <div class="form-inputs py-4">
-                <div class="flex items-center space-x-2">
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
                     <button type="button" class="w-full first-line:flex items-center justify-center space-x-3 border border-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-4 rounded">
                         <span>All Platforms</span>
                     </button>
@@ -885,24 +885,511 @@
             </div>
             <div class="styled-title py-4 relative">
                 <hr class="h-[1px] w-full bg-brandSecondary border-brandSecondary" />
-                <div class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-semmibold bg-tertiaryBg py-2 px-4">FILTERS (OPTIONAL)</div>
+                <div class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] font-semibold bg-tertiaryBg w-48 text-center">FILTERS (OPTIONAL)</div>
             </div>
-            <div class="bg-light-primaryBg dark:bg-primaryBg p-2 w-full max-w-2xl flex items-center justify-around rounded absolute bottom-[-40px] left-0 shadow">
-                <button type="submit" class="flex items-center justify-center space-x-3 bg-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-4 rounded">
-                    <svg width="25" height="25" viewBox="0 0 25 25" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9.58964 17.2635L9.94319 17.6171L10.2967 17.2635L20.3765 7.18376C20.3766 7.18372 20.3766 7.18368 20.3766 7.18364C20.4938 7.06667 20.6526 7.00098 20.8182 7.00098C20.9838 7.00098 21.1425 7.06666 21.2597 7.18362C21.3766 7.30078 21.4422 7.4595 21.4422 7.62499C21.4422 7.79051 21.3765 7.94927 21.2596 8.06643C21.2596 8.06651 21.2595 8.06658 21.2594 8.06665L10.3849 18.9412C10.2677 19.0583 10.1088 19.124 9.94319 19.124C9.77756 19.124 9.61871 19.0583 9.50152 18.9412L4.63375 14.0734C4.5264 13.9556 4.46804 13.8012 4.4708 13.6417C4.47359 13.4797 4.53918 13.3251 4.65373 13.2105C4.7683 13.096 4.92287 13.0304 5.08487 13.0276C5.2444 13.0248 5.39885 13.0832 5.51664 13.1905L9.58964 17.2635Z"/>
-                    </svg>
-                    <span>Apply</span>
-                </button>
-                <button type="button" onclick="hideFilterCustomizePopup()" class="flex items-center justify-center space-x-3 border border-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-4 rounded">
-                    <svg width="25" height="25" viewBox="0 0 25 25" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.14258 7.5L17.1426 17.5M7.14258 17.5L17.1426 7.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Restore defaults</span>
-                </button>
-            </div>
+            <form id="filter-cutomize-form" class="py-4 text-sm">
+                <!-- general -->
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">Liquidity:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="min_liquidity"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="max_liquidity"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">Market cap:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="min_market_cap"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="max_market_cap"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">FDV:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="min_fdv"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="max_fdv"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">Pair age:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_pair_age"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">Hours</div>
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_pair_age"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">Hours</div>
+                    </div>
+                </div>
+                <!-- 24h -->
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">24H txns:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_24h_txns"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_24h_txns"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">24H buys:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_24h_buys"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_24h_buys"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">24H sells:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_24h_sells"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_24h_sells"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">24H volume:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="min_24h_volume"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="max_24h_volume"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">24H change:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_24h_change"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">%</div>
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_24h_change"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">%</div>
+                    </div>
+                </div>
+                <!-- 6h -->
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">6H txns:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_6h_txns"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_6h_txns"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">6H buys:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_6h_buys"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_6h_buys"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">6H sells:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_6h_sells"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_6h_sells"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">6H volume:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="min_6h_volume"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="max_6h_volume"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">6H change:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_6h_change"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">%</div>
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_6h_change"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">%</div>
+                    </div>
+                </div>
+                <!-- 1h -->
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">1H txns:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_1h_txns"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_1h_txns"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">1H buys:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_1h_buys"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_1h_buys"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">1H sells:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_1h_sells"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_1h_sells"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">1H volume:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="min_1h_volume"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="max_1h_volume"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">1H change:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_1h_change"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">%</div>
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_1h_change"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">%</div>
+                    </div>
+                </div>
+                <!-- 5m -->
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">5M txns:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_5m_txns"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_5m_txns"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">5M buys:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_5m_buys"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_5m_buys"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">5M sells:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_5m_sells"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_5m_sells"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">5M volume:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="min_5m_volume"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <div class="w-10 h-10 text-[#3C2148] rounded-tl rounded-bl border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">$</div>
+                        <input
+                            type="text"
+                            name="max_5m_volume"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tr rounded-br bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 lg:space-x-3 md:space-x-4 sm:py-2">
+                    <div class="w-full sm:w-1/2 md:w-1/3 text-center sm:text-right py-2 sm:py-0 font-semibold">5M change:</div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="min_5m_change"
+                            placeholder="Min"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">%</div>
+                    </div>
+                    <div class="w-full flex items-center pb-3 sm:pb-0">
+                        <input
+                            type="text"
+                            name="max_5m_change"
+                            placeholder="Max"
+                            class="w-full px-2 h-10 placeholder-brandSecondary rounded-tl rounded-bl bg-transparent border-brandSecondary focus:outline-none focus:ring-brand"
+                        />
+                        <div class="w-20 h-10 text-[#3C2148] rounded-tr rounded-br border-2 border-brandSecondary bg-brandSecondary flex items-center justify-center">%</div>
+                    </div>
+                </div>
+                <div class="bg-light-primaryBg dark:bg-primaryBg p-2 text-sm sm:text-base w-full max-w-5xl flex items-center justify-around rounded absolute bottom-[-40px] left-0 shadow">
+                    <button type="submit" class="flex items-center justify-center space-x-1 sm:space-x-3 bg-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-2 sm:px-4 rounded">
+                        <svg width="25" height="25" viewBox="0 0 25 25" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.58964 17.2635L9.94319 17.6171L10.2967 17.2635L20.3765 7.18376C20.3766 7.18372 20.3766 7.18368 20.3766 7.18364C20.4938 7.06667 20.6526 7.00098 20.8182 7.00098C20.9838 7.00098 21.1425 7.06666 21.2597 7.18362C21.3766 7.30078 21.4422 7.4595 21.4422 7.62499C21.4422 7.79051 21.3765 7.94927 21.2596 8.06643C21.2596 8.06651 21.2595 8.06658 21.2594 8.06665L10.3849 18.9412C10.2677 19.0583 10.1088 19.124 9.94319 19.124C9.77756 19.124 9.61871 19.0583 9.50152 18.9412L4.63375 14.0734C4.5264 13.9556 4.46804 13.8012 4.4708 13.6417C4.47359 13.4797 4.53918 13.3251 4.65373 13.2105C4.7683 13.096 4.92287 13.0304 5.08487 13.0276C5.2444 13.0248 5.39885 13.0832 5.51664 13.1905L9.58964 17.2635Z"/>
+                        </svg>
+                        <span>Apply</span>
+                    </button>
+                    <button type="reset" onclick="hideFilterCustomizePopup()" class="flex items-center justify-center space-x-1 sm:space-x-3 border border-brandSecondary hover:bg-brandSecondary font-semibold py-2 px-2 sm:px-4 rounded">
+                        <svg width="25" height="25" viewBox="0 0 25 25" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.14258 7.5L17.1426 17.5M7.14258 17.5L17.1426 7.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Restore defaults</span>
+                    </button>
+                </div>
+            </form>
         </form>
-    </x-overlay-popup>
+    </x-large-popup>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -947,7 +1434,18 @@
 
         
         document.getElementById("filter-customize-form").addEventListener("submit", function(event) {
-            event.preventDefault();  
+            event.preventDefault();
+
+            const form = this;
+            const formData = {};
+            
+            Array.from(form.elements).forEach(function(element) {
+                if (element.name) {
+                    formData[element.name] = element.value;
+                }
+            });
+
+            console.log({formData});
             
             window.location.href = "/gainers-losers";
         });
