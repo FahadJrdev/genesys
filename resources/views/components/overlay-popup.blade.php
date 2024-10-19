@@ -1,7 +1,7 @@
 @props(['visibilityClass' => 'hidden', 'title' => null, 'closeButton' => true])
 
 <div class="overlay-popup fixed inset-0 bg-light-primaryBg/70 dark:bg-primaryBg/70 items-center justify-center z-50 {{ $visibilityClass }} transition-all">
-    <div class="bg-light-tertiaryBg dark:bg-tertiaryBg rounded-lg shadow-lg p-6 w-full max-w-2xl relative">
+    <div class="bg-light-tertiaryBg dark:bg-tertiaryBg rounded-lg shadow-lg py-6 px-4 w-full max-w-2xl relative">
         <!-- Title (Optional) -->
         @if($title)
         <div class="bg-light-primaryBg dark:bg-primaryBg p-2 w-full max-w-2xl rounded absolute top-[-5px] left-0 shadow">

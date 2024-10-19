@@ -216,14 +216,7 @@
     </div>
 
     <!-- Share Button -->
-    <div class="text-center">
-        <button class="mx-auto flex items-center justify-center space-x-3 bg-brand hover:bg-hoverBrand font-semibold py-2 px-6 rounded-lg">
-            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 12.5L13.6 5.5V9C10.4 9 4 11.1 4 19.5C4 18.333 5.92 16 13.6 16V19.5L20 12.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>Share this portfolio</span>
-        </button>
-    </div>
+    c
     
     <x-overlay-popup title="Add Wallet" visibilityClass="hidden wallet-popup">
         <form id="wallet-form" class="p-3 text-sm">
