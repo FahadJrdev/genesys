@@ -10,11 +10,11 @@
             <!-- Message -->
             <p class="text-lg mb-4 font-bold">Your watchlist is empty</p>
             <!-- Button -->
-             <a href="/watchlist/add">
-                 <button class="bg-brand hover:bg-hoverBrand font-semibold py-2 px-6 rounded-lg">
-                     Add pair
-                 </button>
-             </a>
+            <a href="/watchlist/add">
+                <button class="bg-brand hover:bg-hoverBrand font-semibold py-2 px-6 rounded-lg">
+                    Add pair
+                </button>
+            </a>
         </div>
     </div>
 </x-app-layout>

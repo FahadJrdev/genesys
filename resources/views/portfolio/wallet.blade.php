@@ -24,28 +24,18 @@
             document.querySelector(".wallet-delete-popup").classList.remove("flex");
             document.querySelector(".wallet-delete-popup").classList.add("hidden");
         };
+        const showSharePortfolioPopup = () => {
+            document.querySelector(".share-portfolio-popup").classList.remove("hidden");
+            document.querySelector(".share-portfolio-popup").classList.add("flex");
+        };
+        const hideSharePortfolioPopup = () => {
+            document.querySelector(".share-portfolio-popup").classList.remove("flex");
+            document.querySelector(".share-portfolio-popup").classList.add("hidden");
+        };
     </script>
-    <div class="min-w-full overflow-y-hidden border-b border-brandSecondary">
-        <div class="min-w-full flex justify-between items-center">
-            <div class="chains flex items-center">
-                <li class="w-24 font-semibold cursor-pointer px-2 py-1 list-none h-full border-b">All Chains</li>
-                <li class="cursor-pointer flex items-center px-2 py-1 space-x-1 h-full">
-                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_497_3848)">
-                        <path d="M12 24.5C18.6274 24.5 24 19.1274 24 12.5C24 5.87258 18.6274 0.5 12 0.5C5.37258 0.5 0 5.87258 0 12.5C0 19.1274 5.37258 24.5 12 24.5Z" fill="#F3BA2F"/>
-                        <path d="M9.087 11.303L12 8.39L14.9145 11.3045L16.6095 9.6095L12 5L7.392 9.608L9.087 11.303ZM4.5 12.5L6.195 10.805L7.89 12.5L6.195 14.195L4.5 12.5ZM9.087 13.697L12 16.61L14.9145 13.6955L16.6095 15.3898L12 20L7.392 15.392L7.38975 15.3898L9.087 13.697ZM16.11 12.5L17.805 10.805L19.5 12.5L17.805 14.195L16.11 12.5ZM13.719 12.4985H13.7205V12.5L12 14.2205L10.2817 12.503L10.2787 12.5L10.2817 12.4977L10.5825 12.1962L10.7288 12.05L12 10.7795L13.7197 12.4992L13.719 12.4985Z" fill="white"/>
-                        </g>
-                        <defs>
-                        <clipPath id="clip0_497_3848">
-                        <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
-                        </clipPath>
-                        </defs>
-                    </svg>
-                    <span>BSC</span>
-                </li>
-            </div>
-        </div>
-    </div>
+    
+    <!-- Coins -->
+    <x-filter-coin3 />
     <div class="min-w-full overflow-y-hidden border-b border-brandSecondary mb-6">
         <div class="min-w-full flex justify-between items-center">
             <div class="chains flex items-center">
@@ -216,7 +206,14 @@
     </div>
 
     <!-- Share Button -->
-    c
+    <div class="flex items-center justify-center py-4">
+        <button onclick="showSharePortfolioPopup()" class="flex items-center text-sm sm:text-base justify-center space-x-1 sm:space-x-3 bg-brand hover:bg-hoverBrand font-semibold py-2 px-2 sm:px-6 rounded-lg">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 12.5L13.6 5.5V9C10.4 9 4 11.1 4 19.5C4 18.333 5.92 16 13.6 16V19.5L20 12.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Share this portfolio</span>
+        </button>
+    </div>
     
     <x-overlay-popup title="Add Wallet" visibilityClass="hidden wallet-popup">
         <form id="wallet-form" class="p-3 text-sm">
@@ -312,6 +309,23 @@
             </div>
         </form>
     </x-overlay-popup>
+    <x-overlay-popup title="Share Portfolio" visibilityClass="hidden share-portfolio-popup">
+        <div id="wallet-delete-form" class="text-sm py-10">
+            <div class="flex items-center justify-center space-x-2">
+                <input type="checkbox" name="allow-link" id="allow-portfolio-link">
+                <label for="allow-link">Allow anyone with link to view this portfolio</label>
+            </div>
+            <div id="copy-share-portfolio-link" class="hidden bg-light-primaryBg dark:bg-primaryBg p-2 w-full max-w-2xl flex-col items-center space-y-3 rounded absolute bottom-[-4rem] left-0 shadow">
+                <p class="text-sm leading-4 text-center text-[#8C8C8C] py-2">https://genesysviewapp.com/portfolio/yyI2Z1Ivk37eb5jñiajkA9L</p>
+                <button type="button" class="flex items-center justify-center space-x-3 bg-brand hover:bg-hoverBrand font-semibold py-2 px-4 rounded">
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.34536 19.7666L6.40815 20.1167C6.53369 20.8169 6.76625 21.3622 7.20165 21.7985C7.69483 22.2917 8.32919 22.5238 9.17431 22.6384L6.34536 19.7666ZM6.34536 19.7666L5.99398 19.7111M6.34536 19.7666L5.99398 19.7111M5.99398 19.7111C5.22913 19.5904 4.53249 19.2006 4.02946 18.6119C3.52642 18.0232 3.25002 17.2743 3.25 16.5V10.444C3.25 8.59291 3.25103 7.17697 3.39852 6.0778L5.99398 19.7111ZM18.7666 5.34536L18.7111 4.99398C18.5904 4.22913 18.2006 3.53249 17.6119 3.02946C17.0232 2.52642 16.2743 2.25002 15.5 2.25H11.444C9.59284 2.25 8.17594 2.25103 7.0778 2.39852L18.7666 5.34536ZM18.7666 5.34536L19.1167 5.40815M18.7666 5.34536L19.1167 5.40815M19.1167 5.40815C19.8169 5.53369 20.3622 5.76625 20.7985 6.20165C21.2917 6.69483 21.5238 7.32919 21.6384 8.17431C21.749 9.0007 21.75 10.065 21.75 11.445V16.555C21.75 17.935 21.749 18.9993 21.6384 19.8257L19.1167 5.40815ZM4.49455 3.49455C3.85495 4.13514 3.54907 4.96108 3.39853 6.07773L4.49455 3.49455ZM4.49455 3.49455C5.13511 2.85498 5.961 2.5491 7.07757 2.39855L4.49455 3.49455ZM17.6128 5.2707L18.3382 5.29568L18.103 4.609C17.9172 4.06633 17.5663 3.59536 17.0995 3.26202C16.6328 2.92874 16.0735 2.74971 15.5 2.75C15.5 2.75 15.4999 2.75 15.4999 2.75C15.4998 2.75 15.4998 2.75 15.4997 2.75L11.5 2.75C9.60711 2.75 8.2135 2.75094 7.14354 2.89444L7.14343 2.89445C6.08257 3.03695 5.37966 3.31723 4.84845 3.84845C4.31719 4.3797 4.03694 5.08265 3.89445 6.14448C3.75094 7.21348 3.75 8.60715 3.75 10.5L3.75 16.4997C3.75 16.4998 3.75 16.4998 3.75 16.4999C3.75 16.4999 3.75 16.5 3.75 16.5C3.74971 17.0735 3.92874 17.6328 4.26202 18.0995C4.59536 18.5663 5.06633 18.9172 5.609 19.103L6.29568 19.3382L6.2707 18.6128C6.25006 18.0131 6.25 17.3325 6.25 16.555V11.445C6.25 10.0649 6.25103 9.00092 6.36251 8.17487L6.36261 8.17408C6.47513 7.33023 6.70887 6.69506 7.20185 6.20126C7.69513 5.70814 8.32961 5.47615 9.17462 5.36254L9.17487 5.36251C10.0009 5.25103 11.0649 5.25 12.445 5.25H15.555C16.3325 5.25 17.0131 5.25006 17.6128 5.2707ZM7.55445 6.55645L7.55381 6.55709C7.17053 6.94176 6.96309 7.4518 6.85649 8.24217L6.85641 8.2427C6.74995 9.03858 6.749 10.0801 6.749 11.501V16.501C6.749 17.9219 6.74995 18.9624 6.85641 19.7583L6.85647 19.7587C6.96294 20.5492 7.16912 21.0602 7.55445 21.4456L7.55509 21.4462C7.93976 21.8295 8.4498 22.0369 9.24017 22.1435L9.2407 22.1436C10.0366 22.2501 11.0781 22.251 12.499 22.251H15.499C16.9199 22.251 17.9604 22.2501 18.7563 22.1436L18.7567 22.1435C19.5472 22.0371 20.0582 21.8309 20.4436 21.4456L20.4442 21.4449C20.8275 21.0602 21.0349 20.5502 21.1415 19.7598L21.1416 19.7592C21.248 18.9624 21.249 17.9219 21.249 16.501V11.501C21.249 10.0802 21.2481 9.03856 21.1416 8.24362L21.1415 8.24326C21.0351 7.4528 20.8289 6.94177 20.4436 6.55645L20.4429 6.55581C20.0582 6.17253 19.5482 5.96509 18.7578 5.85849L18.7572 5.8584C17.9604 5.75195 16.9199 5.751 15.499 5.751H12.499C11.0782 5.751 10.0366 5.75194 9.24162 5.85843L9.24126 5.85847C8.4508 5.96494 7.93977 6.17112 7.55445 6.55645ZM12.445 22.75C11.0655 22.75 10.0014 22.749 9.17516 22.6385L18.8257 22.6384C17.9993 22.749 16.935 22.75 15.555 22.75H12.445ZM20.7984 21.7984C20.3053 22.2916 19.6709 22.5238 18.8257 22.6384L21.6384 19.8257C21.5238 20.6709 21.2916 21.3053 20.7984 21.7984Z" stroke="white"/>
+                    </svg>
+                    <span>Copy link</span>
+                </button>
+            </div>
+        </div>
+    </x-overlay-popup>
 
     <script>
         document.getElementById("wallet-form").addEventListener("submit", function(event) {
@@ -342,6 +356,24 @@
             event.preventDefault();  
             
             window.location.href = "/portfolio";
+        });
+    </script>
+    <script>
+        // Get references to the checkbox and the element to show/hide
+        const allowLinkCheckbox = document.getElementById("allow-portfolio-link");
+        const copyShareLink = document.getElementById("copy-share-portfolio-link");
+
+        // Add an event listener to the checkbox
+        allowLinkCheckbox.addEventListener("change", function() {
+            if (allowLinkCheckbox.checked) {
+                // Show the copy-share-link when checked
+                copyShareLink.classList.remove("hidden");
+                copyShareLink.classList.add("flex");
+            } else {
+                // Hide the copy-share-link when unchecked
+                copyShareLink.classList.remove("flex");
+                copyShareLink.classList.add("hidden");
+            }
         });
     </script>
 </x-app-layout>

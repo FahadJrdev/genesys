@@ -26,6 +26,7 @@ Route::get('/watchlist/token-add', [WatchListController::class, 'token_add'])->n
 Route::get('/alerts', [AlertsController::class, 'index'])->name('alerts');
 Route::get('/multi-charts', [MultiChartsController::class, 'index'])->name('multi-charts');
 Route::get('/multi-charts/add', [MultiChartsController::class, 'add'])->name('multi-charts-add');
+Route::get('/multi-charts/charts', [MultiChartsController::class, 'charts'])->name('multi-charts-charts');
 Route::get('/new-pairs', [NewPairsController::class, 'index'])->name('new-pairs');
 Route::get('/gainers-losers', [GainersLosersController::class, 'index'])->name('gainers-losers');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');

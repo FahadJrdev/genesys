@@ -20,6 +20,7 @@ export default {
             colors: {
                 brand: "#D705F2",
                 brandSecondary: "#7D4695",
+                brandTertiary: "#AB05F2",
                 hoverBrand: "#d605f2aa",
                 inverterBrand: "28FA0D",
                 primaryFont: "#F0FAE2",
@@ -45,6 +46,7 @@ export default {
             height: {
                 "custom-nav": "calc(100vh - 2rem)",
                 "custom-height": "calc(100vh - 12rem)",
+                "custom-card-height": "calc(100vh - 15rem)",
             },
             boxShadow: {
                 drop: "0px 4px 10px #00072D",
