@@ -19,6 +19,11 @@ class WatchListController extends Controller
         return view('watchlist.add');
     }
 
+    public function token(): View
+    {
+        return view('watchlist.token');
+    }
+
     public function token_add(): View
     {
         return view('watchlist.token_add');

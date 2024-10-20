@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/watchlist', [WatchListController::class, 'index'])->name('watchlist');
 Route::get('/watchlist/add', [WatchListController::class, 'add'])->name('watchlist-add');
+Route::get('/watchlist/add/token', [WatchListController::class, 'token'])->name('watchlist-token');
 Route::get('/watchlist/token-add', [WatchListController::class, 'token_add'])->name('watchlist-token-add');
 Route::get('/alerts', [AlertsController::class, 'index'])->name('alerts');
 Route::get('/multi-charts', [MultiChartsController::class, 'index'])->name('multi-charts');
