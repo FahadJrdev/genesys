@@ -1,4 +1,15 @@
 <x-app-layout>
+    <!-- Header with Publicity Advertisements -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+        <!-- Left Banner -->
+        <div class="flex items-center">
+            <img src="{{ asset('assets/images/ads1.png') }}" alt="Left Banner">
+        </div>
+        <!-- Right Banner -->
+        <div class="flex justify-end items-center">
+            <img src="{{ asset('assets/images/ads2.png') }}" alt="Right Banner">
+        </div>
+    </div>
     <div class="flex justify-center items-center h-screen">
         <div class="bg-light-tertiaryBg dark:bg-tertiaryBg rounded-lg shadow-lg p-10 max-w-sm text-center">
             <!-- Icon -->
@@ -15,6 +26,17 @@
                     Add pair
                 </button>
             </a>
+        </div>
+    </div>
+    <!-- Header with Publicity Advertisements -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+        <!-- Left Banner -->
+        <div class="flex items-center">
+            <img src="{{ asset('assets/images/ads1.png') }}" alt="Left Banner">
+        </div>
+        <!-- Right Banner -->
+        <div class="flex justify-end items-center">
+            <img src="{{ asset('assets/images/ads2.png') }}" alt="Right Banner">
         </div>
     </div>
 </x-app-layout>

@@ -1,4 +1,15 @@
 <x-app-layout>
+    <!-- Header with Publicity Advertisements -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+        <!-- Left Banner -->
+        <div class="flex items-center">
+            <img src="{{ asset('assets/images/ads1.png') }}" alt="Left Banner">
+        </div>
+        <!-- Right Banner -->
+        <div class="flex justify-end items-center">
+            <img src="{{ asset('assets/images/ads2.png') }}" alt="Right Banner">
+        </div>
+    </div>
     <div class="flex flex-col space-y-6 items-center justify-center py-2 h-screen">
         <div class="bg-white dark:bg-tertiaryBg rounded-lg shadow-lg py-6 px-4 w-full max-w-2xl relative">
             <!-- Title (Optional) -->
@@ -46,6 +57,17 @@
                     <span>Enable notifications</span>
                 </button>
             </div>
+        </div>
+    </div>
+    <!-- Header with Publicity Advertisements -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+        <!-- Left Banner -->
+        <div class="flex items-center">
+            <img src="{{ asset('assets/images/ads1.png') }}" alt="Left Banner">
+        </div>
+        <!-- Right Banner -->
+        <div class="flex justify-end items-center">
+            <img src="{{ asset('assets/images/ads2.png') }}" alt="Right Banner">
         </div>
     </div>
 </x-app-layout>

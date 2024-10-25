@@ -9,6 +9,17 @@
             document.querySelector(".wallet-popup").classList.add("hidden");
         };
     </script>
+    <!-- Header with Publicity Advertisements -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+        <!-- Left Banner -->
+        <div class="flex items-center">
+            <img src="{{ asset('assets/images/ads1.png') }}" alt="Left Banner">
+        </div>
+        <!-- Right Banner -->
+        <div class="flex justify-end items-center">
+            <img src="{{ asset('assets/images/ads2.png') }}" alt="Right Banner">
+        </div>
+    </div>
     <div class="flex justify-center items-center h-screen">
         <div class="bg-light-tertiaryBg dark:bg-tertiaryBg rounded-lg shadow-lg p-10 max-w-md text-center">
             <!-- Icon -->
@@ -27,6 +38,17 @@
                 </svg>
                 <span>Add a wallet</span>
             </button>
+        </div>
+    </div>
+    <!-- Header with Publicity Advertisements -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+        <!-- Left Banner -->
+        <div class="flex items-center">
+            <img src="{{ asset('assets/images/ads1.png') }}" alt="Left Banner">
+        </div>
+        <!-- Right Banner -->
+        <div class="flex justify-end items-center">
+            <img src="{{ asset('assets/images/ads2.png') }}" alt="Right Banner">
         </div>
     </div>
     <x-overlay-popup title="Add Wallet" visibilityClass="hidden wallet-popup">
